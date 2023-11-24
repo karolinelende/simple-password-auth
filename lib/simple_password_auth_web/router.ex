@@ -14,10 +14,28 @@ defmodule SimplePasswordAuthWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :remove_layout do
+    plug :put_layout, false
+  end
+
+  pipeline :auth do
+    plug SimplePasswordAuthWeb.Plugs.Password, []
+  end
+
   scope "/", SimplePasswordAuthWeb do
     pipe_through :browser
+    pipe_through :remove_layout
 
-    get "/", PageController, :home
+    get "/", AuthController, :auth
+  end
+
+  scope "/", SimplePasswordAuthWeb do
+    pipe_through :browser
+    pipe_through :auth
+
+    post "/", AuthController, :auth
+
+    get "/home", PageController, :home
   end
 
   # Other scopes may use custom stacks.
