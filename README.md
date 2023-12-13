@@ -4,7 +4,7 @@ In this repo I provide a simple implementation of password-only protection of a 
 
 My implementation is largely based on [the `plug_password` repo](https://github.com/azranel/plug_password) which I found incredibly useful. However, the implementation there didn't quite work for me (possibly as it was last updated 6 years ago!) so I have tweaked it. Hope you'll find it useful too!
 
-See further explanations in my blog post [to be written]...
+See further explanations in my [blog post](https://medium.com/p/a9c6ebf39ce4).
 
 To test:
 
